@@ -1,0 +1,15 @@
+# Ignore local TF directory, TF state and lock file
+**/.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Ignore Node.js dependencies
+**/node_modules/
+*.log
+
+# Ignore aws credentials.
+~/.aws/
+
+# Local backend configuration files (if using backend.hcl overrides)
+**/backend.hcl
