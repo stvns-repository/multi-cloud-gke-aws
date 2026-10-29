@@ -35,13 +35,13 @@ This repository is constructed in a way that thed execution phases (using remote
 ### Phase 1 Initializations
 ```bash
 # GCP Foundation
-cd terraform/gcp/phase-1
+cd terraform/gcp/phase-1-foundation
 terraform init -backend-config=backend.hcl
 terraform plan -var="project_id=YOUR_PROJECT_ID"
 terraform apply -var="project_id=YOUR_PROJECT_ID"
 
 # AWS Foundation
-cd terraform/aws/phase-1
+cd terraform/aws/phase-1-foundation
 terraform init -backend-config=backend.hcl
 terraform plan
 terraform apply
