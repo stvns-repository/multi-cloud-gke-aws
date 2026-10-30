@@ -18,7 +18,7 @@ spec:
       containers:
       - name: simulator
         image: YOUR_ACCOUNT_ID.dkr.ecr.us-west-2.amazonaws.com/ecr-lab-05:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         resources:
