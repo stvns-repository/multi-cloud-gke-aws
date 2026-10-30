@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: multi-cloud-sre-simulator-svc
+  namespace: default
+  labels:
+    app: multi-cloud-sre-simulator
+spec:
+  type: ClusterIP
+  selector:
+    app: multi-cloud-sre-simulator
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
