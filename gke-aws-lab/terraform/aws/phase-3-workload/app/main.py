@@ -5,7 +5,7 @@ from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_
 
 app = FastAPI(title="SRE Simulator Workload")
 
-# Prometheus Metrics. TO be used later on the lab.
+# Prometheus Metrics. To be used later on the lab.
 REQUEST_COUNT = Counter('app_requests_total', 'Total HTTP Requests', ['method', 'endpoint'])
 REQUEST_LATENCY = Histogram('app_request_latency_seconds', 'Request latency')
 

@@ -5,7 +5,6 @@ on:
     branches: [ "main", "master" ]
     paths:
       - 'gke-aws-lab/terraform/aws/phase-3-workload/app/**'
-  workflow_dispatch:
 
 jobs:
   build-and-push:
@@ -29,10 +28,19 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
+
+    - name: Ensure ECR Repository Exists
+      env:
+        REPOSITORY: ecr-lab-05 # You can rename this to your liking.
+        AWS_REGION: us-west-2
+      run: |
+        aws ecr describe-repositories --repository-names $REPOSITORY --region $AWS_REGION || \
+        aws ecr create-repository --repository-names $REPOSITORY --region $AWS_REGION  
+
     - name: Build, Tag, and Push Image to Amazon ECR
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: sre-simulator
+        REPOSITORY: ecr-lab-05 # If you renamed line 35, make sure it matches here too!
         IMAGE_TAG: latest
       working-directory: gke-aws-lab/terraform/aws/phase-3-workload/app
       run: |
