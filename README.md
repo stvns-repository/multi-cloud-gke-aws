@@ -29,7 +29,11 @@ This repository is constructed in a way that thed execution phases (using remote
   - AWS State Prefix: `aws/foundation`, `aws/security`
 
 ---
+## Security & Governance
 
+To maintain standards across the files for this specific project, I decided to integrate **Trivy** for automated security scanning.
+
+---
 ## Deployment & Verification
 
 ### Phase 1 Initializations

@@ -1,0 +1,40 @@
+# This is for the Phase 3 of the lab. We'll push an image to AWS ECR.
+name: Build and Push Phase 3 Workload
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - 'gke-aws-lab/terraform/aws/phase-3-workload/app/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2 # We're utilizing Oregon region but if you used a different one, change this line.
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+
+    - name: Build, Tag, and Push Image to Amazon ECR
+      env:
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REPOSITORY: sre-simulator
+        IMAGE_TAG: latest
+      working-directory: eks/phase-3-workload/app
+      run: |
+        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
