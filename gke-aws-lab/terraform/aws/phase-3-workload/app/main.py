@@ -28,7 +28,7 @@ def metrics():
 
 @app.post("/load-test")
 def trigger_cpu_load(duration_seconds: int = 5):
-    """Simulates CPU load to test HPA and autoscaling metrics. This will make further sense in the upcoming phases of the lab"""
+    """Simulates CPU load to test HPA and autoscaling metrics. This will make further sense in the upcoming phases of this project"""
     end_time = time.time() + duration_seconds
     while time.time() < end_time:
         _ = [i**2 for i in range(10000)]

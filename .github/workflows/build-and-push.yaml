@@ -34,8 +34,12 @@ jobs:
         REPOSITORY: ecr-lab-05 # You can rename this to your liking.
         AWS_REGION: us-west-2
       run: |
-        aws ecr describe-repositories --repository-names $REPOSITORY --region $AWS_REGION || \
-        aws ecr create-repository --repository-names $REPOSITORY --region $AWS_REGION  
+        if aws ecr describe-repositories --repository-names "$REPOSITORY" --region "$AWS_REGION" > /dev/null 2>&1; then
+          echo "ECR repository $REPOSITORY already exists."
+        else
+          echo "ECR repository $REPOSITORY does not exist. Creating..."
+          aws ecr create-repository --repository-name "$REPOSITORY" --region "$AWS_REGION"
+        fi
 
     - name: Build, Tag, and Push Image to Amazon ECR
       env:
