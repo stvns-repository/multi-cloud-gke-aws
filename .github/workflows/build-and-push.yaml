@@ -34,7 +34,7 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: sre-simulator
         IMAGE_TAG: latest
-      working-directory: eks/phase-3-workload/app
+      working-directory: gke-aws-lab/terraform/aws/phase-3-workload/app
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
