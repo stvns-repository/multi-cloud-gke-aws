@@ -26,6 +26,7 @@ def read_root():
 def metrics():
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
+# Load test
 @app.post("/load-test")
 def trigger_cpu_load(duration_seconds: int = 5):
     """Simulates CPU load to test HPA and autoscaling metrics. This will make further sense in the upcoming phases of this project"""
