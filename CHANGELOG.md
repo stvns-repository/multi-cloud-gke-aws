@@ -14,3 +14,7 @@ AWS Phase 3 (Workload):
     - Introduced GitHub workflow for the CI/CD portion of phase 3, and succeeding phases.
     - Deployed app/ that contains the Docker components. This is further pushed to AWS ECR via GitHub actions.
     - Deployed the Kubernetes manifests/ file (locally) and validated through a quick simulation. 
+
+[2026-11-01]
+
+GCP Phase 2 (Security): Deployed workload identity.
