@@ -14,7 +14,7 @@ This repository is constructed in a way that the execution phases (using remote 
   - **GCP:** VPC creation, custom subnets, secondary IP ranges, and GKE cluster provisioning.
   - **AWS:** VPC networking, subnets, routing, and EKS cluster provisioning.
 - **Phase 2: Security & Identity** 
-  - **GCP:** Google Service Accounts (GSA) and Workload Identity IAM bindings (`roles/iam.workloadIdentityUser`). *(Upcoming)*
+  - **GCP:** Google Service Accounts (GSA) and Workload Identity IAM bindings (`roles/iam.workloadIdentityUser`). 
   - **AWS:** IAM Roles for Service Accounts (IRSA) and OIDC federated trust policies.
 - **Phase 3: Workloads & Initial Kubernetes components (with testing)** 
   - **GCP:** *(Upcoming)*
