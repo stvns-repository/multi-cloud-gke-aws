@@ -20,7 +20,7 @@ This repository is constructed in a way that the execution phases (using remote 
   - **GCP:** *(Upcoming)*
   - **AWS:**
     - Deploy a containerized multi-component app stack that simulates an active workload via GitOps. 
-    - Deploy a pre-defined Kubernetes manifests, and validate.
+    - Deploy pre-defined Kubernetes manifest files and validate.
 - **Phase 4: ArgoCD and Observability**
   - **AWS:** 
     - Deploy ArgoCD.
