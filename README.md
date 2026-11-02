@@ -20,7 +20,10 @@ This repository is constructed in a way that the execution phases (using remote 
   - **GCP:** *(Upcoming)*
   - **AWS:** Deploy a containerized multi-component app stack that simulates an active workload via GitOps. 
              Deploy a pre-defined Kubernetes manifests, and validate.
-- **Phase 4: ArgoCD and Observability** *(Upcoming)*
+- **Phase 4: ArgoCD and Observability** 
+  - **AWS:** Deploy ArgoCD.
+             Deploy Prometheus and Grafana (Observability) using the kube-prometheus-stack Helm chart.
+             (Simulate) Validate accessibility of ArgoCD and Grafana dashboard (via localhost) by running port-forwarding.
 
 ---
 
@@ -57,5 +60,8 @@ terraform apply
 ### Phase 2 Initialization
 *(Upcoming)*
 
-### Phase 3 Initializatio
+### Phase 3 Initialization
+*(Upcoming)*
+
+### Phase 4 Initialization
 *(Upcoming)*
