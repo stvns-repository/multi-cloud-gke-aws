@@ -26,3 +26,8 @@ Trivy (Security): Scan files for any misconfiguration and vulnerabilities.
   - Introduced ArgoCD for GitOps-based continuous deployment and manifest synchronization. 
   - Deployed Prometheus and Grafana via the kube-prometheus-stack Helm chart.
   - Validated service discovery and accessibility for both ArgoCD and the Grafana dashboard via localhost.
+
+[2026-11-03]
+
+- **Git repository:**  
+  - Rename the repository to reflect the project's actual vision and architecture. 

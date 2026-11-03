@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sre-simulator-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/stvns-repository/multi-cloud-gke-aws.git' # Must be replaced with your actual GitHub repo URL.
+    targetRevision: HEAD
+    path: gke-aws-lab/terraform/aws/phase-3-workload/manifests # This is where our phase-3-workload-manifests are located
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: workload-app # The namespace we used for Phase 3. If you used a different one, make sure to change this
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
