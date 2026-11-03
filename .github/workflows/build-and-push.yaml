@@ -3,11 +3,11 @@ name: Build and Push Phase 3 Workload
 # (To be updated)
 #on:
   #push:
-    branches:
-      - "main"
-      - "master"
-    paths:
-      - 'portable-k8s-cluster/terraform/aws/phase-3-workload/app/**'
+    #branches:
+      #- "main"
+      #- "master"
+    #paths:
+      #- 'portable-k8s-cluster/terraform/aws/phase-3-workload/app/**'
 
 jobs:
   build-and-push:
