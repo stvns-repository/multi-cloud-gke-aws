@@ -1,1 +1,0 @@
-bucket_name = "stvn-aws-bucket-multicloud-prjct"
