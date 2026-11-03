@@ -1,8 +1,8 @@
 name: Build and Push Phase 3 Workload
 # This is for the Phase 3 of the lab. We'll push an image to AWS ECR.
-
-on:
-  push:
+# (To be updated)
+#on:
+  #push:
     branches:
       - "main"
       - "master"
@@ -49,7 +49,7 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: ecr-lab-05
         IMAGE_TAG: latest
-      working-directory: gke-aws-lab/terraform/aws/phase-3-workload/app
+      working-directory: portable-k8s-cluster/terraform/aws/phase-3-workload/app
       run: |
         docker build --no-cache -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
