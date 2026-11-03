@@ -1,6 +1,6 @@
 # EKS Cluster IAM Role
 resource "aws_iam_role" "cluster" {
-  name = "multi-cloud-eks-cluster-role"
+  name = "portable-eks-cluster-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
