@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/stvns-repository/protable-k8s-cluster-aws.git' # Must be replaced with your actual GitHub repo URL.
+    repoURL: 'https://github.com/stvns-repository/protable-k8s-cluster.git' # Must be replaced with your actual GitHub repo URL.
     targetRevision: HEAD
     path: portable-k8s-cluster/terraform/aws/phase-3-workload/manifests # This is where our phase-3-workload-manifests are located
   destination:
