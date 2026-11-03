@@ -1,8 +1,8 @@
 name: Build and Push Phase 3 Workload
 # This is for the Phase 3 of the lab. We'll push an image to AWS ECR.
 # (To be updated)
-on:
-  push:
+#on:
+  #push:
     branches:
       - "main"
       - "master"
