@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
 
   tags = {
-    Name = "multi-cloud-aws-vpc"
+    Name = "portable-k8s-aws-vpc"
   }
 }
 
@@ -48,7 +48,7 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name = "multi-cloud-private-${count.index}"
-    "kubernetes.io/cluster/multi-cloud-eks" = "shared"
+    "kubernetes.io/cluster/portable-k8s-cluster" = "shared"
     "kubernetes.io/role/internal-elb"       = "1"
   }
 }

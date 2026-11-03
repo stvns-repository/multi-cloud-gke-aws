@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "main" {
-  name     = "multi-cloud-eks"
+  name     = "portable-k8s-cluster"
   role_arn = aws_iam_role.cluster.arn
   version  = "1.36"
 

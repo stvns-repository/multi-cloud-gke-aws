@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "cluster_amazon_eks_cluster_policy" {
 
 # EKS Node Group IAM Role
 resource "aws_iam_role" "node" {
-  name = "multi-cloud-eks-node-role"
+  name = "portable-eks-node-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
