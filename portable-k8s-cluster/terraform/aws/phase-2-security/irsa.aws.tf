@@ -1,5 +1,5 @@
 # IRSA Trust Policy
-data "aws_iam_policy_document" "sample_irsa_trust" {
+data "aws_iam_policy_document" "k8s_irsa_trust" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     effect  = "Allow"
@@ -19,6 +19,6 @@ data "aws_iam_policy_document" "sample_irsa_trust" {
 
 # IAM Role for Kubernetes Service Account
 resource "aws_iam_role" "sample_irsa_role" {
-  name               = "multi-cloud-eks-sample-irsa-role"
-  assume_role_policy = data.aws_iam_policy_document.sample_irsa_trust.json
+  name               = "portable-k8s-eks-irsa-role"
+  assume_role_policy = data.aws_iam_policy_document.k8s_irsa_trust.json
 }

@@ -16,7 +16,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
   tags = {
-    Name = "multi-cloud-igw"
+    Name = "portable-k8s-igw"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "multi-cloud-public-${count.index}"
+    Name = "portable-k8s-public-sn-${count.index}"
     "kubernetes.io/cluster/multi-cloud-eks" = "shared"
     "kubernetes.io/role/elb"                = "1"
   }
@@ -47,7 +47,7 @@ resource "aws_subnet" "private" {
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = {
-    Name = "multi-cloud-private-${count.index}"
+    Name = "portable-k8s-private-sn-${count.index}"
     "kubernetes.io/cluster/portable-k8s-cluster" = "shared"
     "kubernetes.io/role/internal-elb"       = "1"
   }
@@ -62,7 +62,7 @@ resource "aws_nat_gateway" "nat" {
   subnet_id     = aws_subnet.public[0].id
 
   tags = {
-    Name = "multi-cloud-nat"
+    Name = "portable-k8s-nat"
   }
 }
 
@@ -75,7 +75,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "multi-cloud-public-rt"
+    Name = "portable-k8s-public-rt"
   }
 }
 
@@ -88,7 +88,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "multi-cloud-private-rt"
+    Name = "portable-k8s-private-rt"
   }
 }
 
