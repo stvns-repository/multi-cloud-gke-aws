@@ -31,3 +31,8 @@ Trivy (Security): Scan files for any misconfiguration and vulnerabilities.
 
 - **Git repository:**  
   - Rename the repository to reflect the project's actual vision and architecture. 
+
+[2026-11-04]
+
+- **AWS Phase 2 (Security):**  
+  - Modified controller-irsa.aws.tf to add necessary roles and policies that'll be used for the Phase 5 of the lab.

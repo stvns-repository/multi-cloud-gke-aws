@@ -80,7 +80,11 @@ resource "aws_iam_policy" "controller_iam_policy" {
           "acm:ListCertificates",
           "acm:DescribeCertificate",
           "iam:GetServerCertificate",
-          "iam:ListServerCertificates"
+          "iam:ListServerCertificates",
+          "elasticloadbalancing:*",
+          "wafv2:*",
+          "shield:GetSubscriptionState",
+          "waf-regional:*"
         ]
         Resource = "*"
       }
