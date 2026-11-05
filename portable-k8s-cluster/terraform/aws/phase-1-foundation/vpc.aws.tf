@@ -34,7 +34,7 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = "portable-k8s-public-sn-${count.index}"
-    "kubernetes.io/cluster/multi-cloud-eks" = "shared"
+    "kubernetes.io/cluster/portable-k8s-cluster" = "shared"
     "kubernetes.io/role/elb"                = "1"
   }
 }
