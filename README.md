@@ -26,6 +26,11 @@ This repository is constructed in a way that the execution phases (using remote 
     - Deploy ArgoCD.
     - Deploy Prometheus and Grafana (Observability) using the kube-prometheus-stack Helm chart.
     - (Simulate) Validate accessibility of ArgoCD and Grafana dashboard (via localhost) by running port-forwarding.
+- **Phase 5: Ingress**
+  - **AWS:** 
+    - Deployed the AWS LB Controller (Ingress Controller) via Helm to manage external traffic routing directly from Kubernetes Ingress resources.
+    - Deployed a shared external Application Load Balancer (ALB) utilizing target-type ip for container-native routing.
+    - Configured path-based routing (/argocd) targeting the Argo CD server service.
 
 ---
 
@@ -66,4 +71,7 @@ terraform apply
 *(Upcoming)*
 
 ### Phase 4 Initialization
+*(Upcoming)*
+
+### Phase 5 Initialization
 *(Upcoming)*

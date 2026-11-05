@@ -36,3 +36,13 @@ Trivy (Security): Scan files for any misconfiguration and vulnerabilities.
 
 - **AWS Phase 2 (Security):**  
   - Modified controller-irsa.aws.tf to add necessary roles and policies that'll be used for the Phase 5 of the lab.
+
+[2026-11-05]
+
+- **AWS Phase 4 (ArgoCD and Observability):**  
+  - Add ArgoCD parameters and kustomization yaml. This is necessary for the Phase 5 of the lab.
+
+ **AWS Phase 5 (Load Balancer):**  
+  - Implement Ingress Controller and define a routing path for argocd. 
+  - Secure ALB's security group to only allow inbound rule from port 80.
+  
