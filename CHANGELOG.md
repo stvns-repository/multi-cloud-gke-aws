@@ -42,7 +42,6 @@ Trivy (Security): Scan files for any misconfiguration and vulnerabilities.
 - **AWS Phase 4 (ArgoCD and Observability):**  
   - Add ArgoCD parameters and kustomization yaml. This is necessary for the Phase 5 of the lab.
 
- **AWS Phase 5 (Load Balancer):**  
+- **AWS Phase 5 (Load Balancer):**  
   - Implement Ingress Controller and define a routing path for argocd. 
   - Secure ALB's security group to only allow inbound rule from port 80.
-  
