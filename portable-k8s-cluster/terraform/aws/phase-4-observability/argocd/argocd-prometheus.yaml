@@ -18,6 +18,10 @@ spec:
             replicas: 1
             serviceMonitorSelectorNilUsesHelmValues: false
         grafana:
+          grafana.ini:
+            server:
+              root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana/"
+              serve_from_sub_path: true
           additionalDataSources:
             - name: Prometheus
               type: prometheus
@@ -34,3 +38,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+  ignoreDifferences:
+    - group: monitoring.coreos.com
+      kind: Prometheus
+      jsonPointers:
+        - /status/terminatingReplicas    

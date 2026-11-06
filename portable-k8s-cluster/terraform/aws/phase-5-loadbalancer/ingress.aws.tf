@@ -63,6 +63,7 @@ resource "kubernetes_ingress_v1" "argocd_ingress" {
       "kubernetes.io/ingress.class"                         = "alb"
       "alb.ingress.kubernetes.io/scheme"                    = "internet-facing"
       "alb.ingress.kubernetes.io/target-type"               = "ip"
+      "alb.ingress.kubernetes.io/group.name"                = "portable-k8s-shared-alb"
       "alb.ingress.kubernetes.io/listen-ports"              = jsonencode([{ "HTTP" = 80 }])
       "alb.ingress.kubernetes.io/subnets"                   = join(",", data.aws_subnets.public.ids)
       "alb.ingress.kubernetes.io/security-groups"           = aws_security_group.alb_sg.id
@@ -83,6 +84,52 @@ resource "kubernetes_ingress_v1" "argocd_ingress" {
           backend {
             service {
               name = "argocd-server"
+              port {
+                number = 80
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# Grafana Ingress
+resource "kubernetes_ingress_v1" "grafana_ingress" {
+  depends_on = [
+    null_resource.wait_for_webhook,
+    aws_security_group_rule.eks_node_ingress_from_alb
+  ]
+
+  metadata {
+    name      = "grafana-ingress"
+    namespace = "monitoring"
+    annotations = {
+      "kubernetes.io/ingress.class"                         = "alb"
+      "alb.ingress.kubernetes.io/scheme"                    = "internet-facing"
+      "alb.ingress.kubernetes.io/target-type"               = "ip"
+      "alb.ingress.kubernetes.io/group.name"                = "portable-k8s-shared-alb"
+      "alb.ingress.kubernetes.io/listen-ports"              = jsonencode([{ "HTTP" = 80 }])
+      "alb.ingress.kubernetes.io/subnets"                   = join(",", data.aws_subnets.public.ids)
+      "alb.ingress.kubernetes.io/security-groups"           = aws_security_group.alb_sg.id
+      "alb.ingress.kubernetes.io/healthcheck-path"          = "/api/health"
+      "alb.ingress.kubernetes.io/healthcheck-port"          = "3000"
+      "alb.ingress.kubernetes.io/healthcheck-protocol"      = "HTTP"
+      "alb.ingress.kubernetes.io/backend-protocol"          = "HTTP"
+      "alb.ingress.kubernetes.io/target-group-attributes" = "stickiness.enabled=false"
+    }
+  }
+
+  spec {
+    rule {
+      http {
+        path {
+          path      = "/grafana"
+          path_type = "Prefix"
+          backend {
+            service {
+              name = "monitoring-stack-grafana"
               port {
                 number = 80
               }
