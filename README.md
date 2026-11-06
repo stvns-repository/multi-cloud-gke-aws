@@ -30,7 +30,8 @@ This repository is constructed in a way that the execution phases (using remote 
   - **AWS:** 
     - Deployed the AWS LB Controller (Ingress Controller) via Helm to manage external traffic routing directly from Kubernetes Ingress resources.
     - Deployed a shared external Application Load Balancer (ALB) utilizing target-type ip for container-native routing.
-    - Configured path-based routing (/argocd) targeting the Argo CD server service.
+    - Configured path-based routing (/argocd/) targeting the Argo CD server service.
+    - Configured path-based routing (/grafana/) targeting the Grafana service.
 
 ---
 
@@ -74,4 +75,7 @@ terraform apply
 *(Upcoming)*
 
 ### Phase 5 Initialization
+*(Upcoming)*
+
+### Phase 6 Initialization
 *(Upcoming)*

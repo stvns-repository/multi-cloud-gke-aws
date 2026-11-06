@@ -43,5 +43,14 @@ Trivy (Security): Scan files for any misconfiguration and vulnerabilities.
   - Add ArgoCD parameters and kustomization yaml. This is necessary for the Phase 5 of the lab.
 
 - **AWS Phase 5 (Load Balancer):**  
-  - Implement Ingress Controller and define a routing path for argocd. 
+  - Implement ArgoCD Ingress Controller and define a routing path for argocd. 
   - Secure ALB's security group to only allow inbound rule from port 80.
+
+[2026-11-06]
+- **AWS Phase 4 (ArgoCD and Observability):**  
+  - Configured Grafana server settings (`grafana.ini` with explicit domain, root URL, and sub-path routing) to support ALB path-based routing and prevent issues with redirect loops.
+
+- **AWS Phase 5 (Load Balancer):**  
+  - Implemented the Ingress resource and path routing rules to expose Grafana through the shared AWS ALB.
+
+
